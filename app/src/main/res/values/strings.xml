@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Never</string>
+    <string name="title_index">首页</string>
+    <string name="title_my_like">我喜欢的</string>
+    <string name="title_my_attention">我关注的</string>
+    <string name="title_my_title">我的话题</string>
+    <string name="title_my_comment">我评论的</string>
+    <string name="title_my_message">私信</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
