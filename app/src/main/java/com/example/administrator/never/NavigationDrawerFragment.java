@@ -1,16 +1,7 @@
 package com.example.administrator.never;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.shapes.Shape;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -22,6 +13,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +31,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -68,13 +62,15 @@ public class NavigationDrawerFragment extends Fragment {
      */
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private DrawerLayout mDrawerLayout;
+    public static DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
-    private View mFragmentContainerView;
+    public static View mFragmentContainerView;
 
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    private static boolean isLeftNavigationOpen = false;  //保存左侧菜单是否关闭
+    private static boolean isExit = false;
 
     public NavigationDrawerFragment() {
     }
@@ -151,10 +147,10 @@ public class NavigationDrawerFragment extends Fragment {
         map.put("text", "我评论的");
         list.add(map);
 
-        map = new HashMap<>();
+        /*map = new HashMap<>();
         map.put("img_src", R.drawable.menu_title_icon);
         map.put("text", "我的话题");
-        list.add(map);
+        list.add(map);*/
 
         map = new HashMap<>();
         map.put("img_src", R.drawable.menu_mesager_icon);
@@ -202,6 +198,9 @@ public class NavigationDrawerFragment extends Fragment {
                     return;
                 }
 
+                //设置左侧菜单状态为关闭
+                isLeftNavigationOpen = false;
+
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
@@ -211,6 +210,9 @@ public class NavigationDrawerFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
+
+                //设置左侧菜单状态为打开
+                isLeftNavigationOpen = true;
 
                 if (!mUserLearnedDrawer) {
                     // The user manually opened the drawer; store this flag to prevent auto-showing
@@ -322,6 +324,28 @@ public class NavigationDrawerFragment extends Fragment {
 
     private ActionBar getActionBar() {
         return ((ActionBarActivity) getActivity()).getSupportActionBar();
+    }
+
+    //接收Activity的OnKeyDown事件
+    public static boolean onKeyDown (){
+        //如果左侧菜单打开
+        if (isLeftNavigationOpen){
+            mDrawerLayout.closeDrawer(mFragmentContainerView);
+            isExit = false;
+        }
+        if(!isExit){
+            isExit = true;
+            //妈蛋，这个竟然是异步的  Fuck
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            }, 1000);
+        }else{
+            System.exit(0);
+        }
+        return true;
     }
 
     /**

@@ -18,6 +18,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,13 +26,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         myAttentionFragment.OnFragmentInteractionListener,
         myReviewFragment.OnFragmentInteractionListener,
-        myFavoriteFragment.OnFragmentInteractionListener{
+        myMesagerFragment.OnFragmentInteractionListener,
+        myFavoriteFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -44,6 +50,8 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private static boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,17 +114,17 @@ public class MainActivity extends ActionBarActivity
                 //记住当前的Fragment
                 currentFragment = myReviewFragment.newInstance("", "");
                 break;
-            case 4:
+           /* case 4:
                 //我的话题
                 newFragment = new myReviewFragment();
 
                 //记住当前的Fragment
                 currentFragment = PlaceholderFragment.newInstance(position + 1);
-                break;
-            case 5:
+                break;*/
+            case 4:
                 //私信
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, myMesagerFragment.newInstance())
                         .commit();
 
                 //记住当前的Fragment
@@ -152,11 +160,11 @@ public class MainActivity extends ActionBarActivity
                 //我评论的
                 mTitle = getString(R.string.title_my_comment);
                 break;
-            case 5:
+            /*case 5:
                 //我的话题
                 mTitle = getString(R.string.title_my_title);
-                break;
-            case 6:
+                break;*/
+            case 5:
                 //私信
                 mTitle = getString(R.string.title_my_message);
                 break;
@@ -243,11 +251,19 @@ public class MainActivity extends ActionBarActivity
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
-
-
-
-
     }
+
+
+    //当点击
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            NavigationDrawerFragment.onKeyDown();
+            return true;
+        }
+        return false;
+    }
+
     //图片变成圆形
     public static Bitmap toRoundCorner(Bitmap bitmap, int pixels) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
