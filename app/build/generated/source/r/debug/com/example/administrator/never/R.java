@@ -1317,8 +1317,9 @@ containing a value of this type.
         public static final int menu_mesager_icon=0x7f020039;
         public static final int menu_review_icon=0x7f02003a;
         public static final int menu_right_icon=0x7f02003b;
-        public static final int menu_title_icon=0x7f02003c;
-        public static final int phlicess=0x7f02003d;
+        public static final int menu_setting_icon=0x7f02003c;
+        public static final int menu_title_icon=0x7f02003d;
+        public static final int phlicess=0x7f02003e;
     }
     public static final class id {
         public static final int action_bar=0x7f080031;
@@ -1329,13 +1330,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f08001f;
         public static final int action_bar_title=0x7f08001e;
         public static final int action_context_bar=0x7f080032;
-        public static final int action_example=0x7f08004b;
+        public static final int action_example=0x7f08004c;
         public static final int action_menu_divider=0x7f080002;
         public static final int action_menu_presenter=0x7f080003;
         public static final int action_mode_bar=0x7f08002e;
         public static final int action_mode_bar_stub=0x7f08002d;
         public static final int action_mode_close_button=0x7f080020;
-        public static final int action_settings=0x7f08004a;
+        public static final int action_settings=0x7f08004b;
         public static final int activity_chooser_view_content=0x7f080021;
         public static final int always=0x7f080016;
         public static final int attention_count_tv=0x7f080044;
@@ -1359,10 +1360,10 @@ containing a value of this type.
         public static final int ifRoom=0x7f080018;
         public static final int image=0x7f080023;
         public static final int intro_tv=0x7f080045;
-        public static final int layout22=0x7f080049;
+        public static final int layout22=0x7f08004a;
         public static final int listMode=0x7f080009;
         public static final int list_item=0x7f080025;
-        public static final int menu_item_icon=0x7f080047;
+        public static final int menu_item_icon=0x7f080048;
         public static final int menu_ls=0x7f080046;
         public static final int middle=0x7f080015;
         public static final int navigation_drawer=0x7f080041;
@@ -1383,7 +1384,8 @@ containing a value of this type.
         public static final int search_plate=0x7f080039;
         public static final int search_src_text=0x7f08003a;
         public static final int search_voice_btn=0x7f08003e;
-        public static final int section_label=0x7f080048;
+        public static final int section_label=0x7f080049;
+        public static final int setting_button=0x7f080047;
         public static final int shortcut=0x7f08002a;
         public static final int showCustom=0x7f08000f;
         public static final int showHome=0x7f080010;
@@ -1431,9 +1433,10 @@ containing a value of this type.
         public static final int my_attention=0x7f03001a;
         public static final int my_favorite=0x7f03001b;
         public static final int my_index=0x7f03001c;
-        public static final int my_review=0x7f03001d;
-        public static final int round_head=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int my_mesager=0x7f03001d;
+        public static final int my_review=0x7f03001e;
+        public static final int round_head=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class menu {
         public static final int global=0x7f0c0000;
@@ -1459,14 +1462,15 @@ containing a value of this type.
         public static final int action_example=0x7f0a0010;
         public static final int action_settings=0x7f0a0011;
         public static final int app_name=0x7f0a0012;
-        public static final int navigation_drawer_close=0x7f0a0013;
-        public static final int navigation_drawer_open=0x7f0a0014;
-        public static final int title_index=0x7f0a0015;
-        public static final int title_my_attention=0x7f0a0016;
-        public static final int title_my_comment=0x7f0a0017;
-        public static final int title_my_like=0x7f0a0018;
-        public static final int title_my_message=0x7f0a0019;
-        public static final int title_my_title=0x7f0a001a;
+        public static final int hello_blank_fragment=0x7f0a0013;
+        public static final int navigation_drawer_close=0x7f0a0014;
+        public static final int navigation_drawer_open=0x7f0a0015;
+        public static final int title_index=0x7f0a0016;
+        public static final int title_my_attention=0x7f0a0017;
+        public static final int title_my_comment=0x7f0a0018;
+        public static final int title_my_like=0x7f0a0019;
+        public static final int title_my_message=0x7f0a001a;
+        public static final int title_my_title=0x7f0a001b;
     }
     public static final class style {
         /**  Customize your theme here. 
