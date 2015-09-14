@@ -1,5 +1,1 @@
 X:\2015Projects\Never2\Never\app\build\intermediates\classes\debug
-X:\2015Projects\Never2\Never\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-16e0d08e37d26464e51623303ca7cbe1402ebfb5.jar
-X:\2015Projects\Never2\Never\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-76ae98bd6f52c483dffee16a81f7a9284eb82503.jar
-X:\2015Projects\Never2\Never\app\build\intermediates\pre-dexed\debug\classes-8f5e91c212429fa6636279870b901220aecb9c3a.jar
-X:\2015Projects\Never2\Never\app\build\intermediates\pre-dexed\debug\classes-44f25d1ccac9cf069e30027b199166566822f3d4.jar
